@@ -55,7 +55,7 @@ nav a{color:var(--white);text-decoration:none;margin-right:12px}
       color: white;
     }
     header {
-      background: #00b637ff;
+      background: blue;
       color:rgb(8, 5, 5);
       padding: 20px;
       text-align: center;}
