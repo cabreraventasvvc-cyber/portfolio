@@ -1,93 +1,84 @@
 
-:root{
-  --primary:#0077b6;
-  --accent:#00b4d8;
-  --dark:#023e8a;
-  --bg:#f5f5f5;
-  --text:#333;
-  --white:#fff;
+/* ---------- HERO CON IMAGEN Y ANIMACIONES ---------- */
+header.hero {
+  position: relative;
+  background: url("https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80") center/cover no-repeat;
+  color: white;
+  text-align: center;
+  padding: 120px 20px;
+  overflow: hidden;
 }
-*{box-sizing:border-box}
-html,body{margin:0;padding:0;font-family:Arial,Helvetica,sans-serif;line-height:1.6;background:var(--bg);color:var(--text)}
-.container{max-width:1000px;margin:0 auto;padding:24px}
-header.hero{background:var(--primary);color:var(--white);padding:56px 24px;text-align:center}
-header.hero h1{margin:0 0 8px 0}
-.cta{display:inline-block;background:var(--accent);color:var(--white);padding:12px 20px;border-radius:8px;text-decoration:none;font-weight:bold}
-section.card{background:var(--white);border-radius:12px;padding:24px;margin:20px 0;box-shadow:0 10px 20px rgba(0,0,0,.06)}
-.grid{display:grid;gap:16px}
-.grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
-.grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
-.badge{display:inline-block;background:var(--dark);color:var(--white);padding:6px 10px;border-radius:999px;font-size:.9rem}
-footer{background:var(--dark);color:var(--white);text-align:center;padding:16px;margin-top:24px}
-.card h3{margin-top:0}
-ul.clean{padding-left:18px}
-img.responsive{max-width:100%;height:auto;border-radius:12px}
-input,textarea,button{width:100%;padding:12px;border:1px solid #ddd;border-radius:8px;font-size:1rem}
-form .row{display:grid;gap:12px;grid-template-columns:1fr}
-@media(min-width:720px){form .row{grid-template-columns:1fr 1fr}}
-button{background:var(--accent);color:var(--white);border:none;cursor:pointer;font-weight:bold}
-.small{font-size:.9rem;color:#555}
-nav{background:var(--dark);color:var(--white);padding:10px 16px}
-nav .nav-inner{max-width:1000px;margin:0 auto;display:flex;gap:16px;align-items:center;justify-content:space-between}
-nav a{color:var(--white);text-decoration:none;margin-right:12px}
-.brand{font-weight:800;letter-spacing:.5px}
- nav {
-      background: #023e8a;
-      padding: 10px;
-      text-align: center;
-    }
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
 
-     body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
-      background:#86868b;
-      color: white;
-    }
-    header {
-      background: blue;
-      color:rgb(8, 5, 5);
-      padding: 20px;
-      text-align: center;}
-      nav {
-      background: #8a95a3;
-      padding: 10px;
-      text-align: center;
-    }
-    nav a {
-      color: #0c0b0b;
-      text-decoration: none;
-      margin: 0 15px;
-    }
-    a {color: white;
-      text-decoration: none;
-      margin: 0 15px;
-    }
-    section {
-      max-width: 900px;
-      margin: 20px auto;
-      padding: 20px;
-      background: #2a0e8f;
-      border-radius: 8px;
-    }
-    h1, h2 {
-      color:white;
-    }
-    .proyecto {margin-bottom: 20px;
-    }
-    footer {
-      text-align: center;
-      padding: 15px;
-      background: #023e8a;
-      color: #fff;
-    }
+header.hero .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+header.hero .hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+header.hero h1 {
+  font-size: 3rem;
+  margin: 0;
+  letter-spacing: 2px;
+}
+
+header.hero h2 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-top: 10px;
+}
+
+/* Animaciones suaves */
+.fade-in {
+  animation: fadeIn 2s ease-in-out forwards;
+  opacity: 0;
+}
+
+.slide-up {
+  animation: slideUp 2.5s ease-in-out forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ---------- NAV FIJA SUPERIOR ---------- */
+nav.sticky-nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--dark);
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+nav.sticky-nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+nav.sticky-nav a:hover {
+  color: var(--accent);
+}
